@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const title = 'Living Homeless | Daily Journal';
+const description = 'Daily posts about homeless life by Lisa and Andrew.';
+const permalink = Astro.site.href;
+
+const posts = (await getCollection('journal')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="journal">
+  <div class="text-center my-auto max-w-6xl w-full">
+    <h2 class="font-bold mt-14 mb-8">Journal</h2>
+    <p class="text-large mb-14">Daily journal entries documenting the homeless experiences of Lisa and Andrew</p>
+    {posts.map((post, index) => {
+        const href = `/journal/${post.slug}/`;
+        return (
+            <div>
+              { index !== 0 && <hr class="mx-14 my-auto" /> }
+              <div class="text-center m-4 p-6 border-2 border-black rounded-lg hover:bg-slate-200 hover:shadow-md hover:shadow-slate-400">
+                <h2 class="font-bold">
+                   <a href={href} class="text-teal-500 hover:text-teal-400">{post.data.title}</a> 
+                </h2>
+                <p>{post.data.description}</p>
+                <div class="font-semibold">
+                    <span class="text-left uppercase mr-4">{post.data.pubDate}</span>
+                </div>
+              </div>
+            </div>
+        )
+    })}
+  </div>
+</BaseLayout>

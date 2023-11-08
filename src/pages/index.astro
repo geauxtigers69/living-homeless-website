@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Living Homeless | Learn about homelessness through lived experiences';
+const description = 'Learn how to live homeless with Lisa and Andrew.';
+const permalink = Astro.site.href;
+---
+
+<!doctype html>
+<html lang="en">
+  <BaseLayout title={title} description={description} permalink={permalink}>
+	<div class="flex flex-1 items-center justify-center my-16">
+		<div class="flex-1 px-8">
+			<h2 class="font-bold leading-5 mb-16">Welcome to Living Homeless!</h2>
+			<p>
+				Thank you for stopping by and checking out the Living Homeless Blog Site by Andrew Weisbeck
+				and Lisa Heusner. We are excited to share our experience and knowledge with you about what 
+				it is like to be homeless, how to survive when homeless, and hopefully we can inspire you to 
+				help others who are suffering through a difficult time like we are.
+			</p>
+			<p class="my-8">
+				You can find our homelessness tips and guides on the <a href="/blog">blog page</a>, follow our daily
+				journey on the <a href="/journal">journal page</a>, and find homeless stats and resources on the 
+				<a href="/resources">resources page</a>. Learn more about Lisa and Andrew or donate to help lift 
+				them out of homelessness below!	
+			</p>
+			<div class="flex my-8">
+			  <a href="/about" class="border-2 border-black rounded-2xl bg-sky-400 hover:bg-sky-600 text-white hover:text-white px-4 py-1">Learn More</a>
+			  <a href="/donate" class="border-2 border-black rounded-2xl bg-green-400 hover:bg-green-600 text-white hover:text-white px-4 py-1 ml-6">Donate Now</a>
+			</div>
+		</div>
+		<div class="mx-8 text-center h-full">
+			<picture class="block min-h-full">
+				<img src="livinghomelesslogo.png" alt="Living Homeless Logo" class="max-h-xl w-full" />
+			</picture>
+		</div>
+	</div>
+			<p>Here are a few ideas on how to get started with the template:</p>
+			<ul>
+				<li>Edit this page in <code>src/pages/index.astro</code></li>
+				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
+				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
+				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
+				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
+			</ul>
+			<p>
+				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
+					>read the docs
+				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
+			</p>
+			<p>
+				Looking for a blog template with a bit more personality? Check out <a
+					href="https://github.com/Charca/astro-blog-template"
+					>astro-blog-template
+				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
+			</p>
+	</BaseLayout>
+</html>
