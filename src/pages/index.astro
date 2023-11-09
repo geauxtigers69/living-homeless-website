@@ -1,5 +1,12 @@
 ---
+import { postcss } from 'tailwindcss';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 
 const title = 'Living Homeless | Learn about homelessness through lived experiences';
 const description = 'Learn how to live homeless with Lisa and Andrew.';
@@ -35,24 +42,33 @@ const permalink = Astro.site.href;
 			</picture>
 		</div>
 	</div>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
+	<div>
+		<ul>
+			{
+				posts.map((post) => (
+					<li>
+						<a href={`/blog/${post.slug}`}>
+							<img width={360} height={180} src={post.data.heroImage} alt="" />
+							<h4>{post.data.title}</h4>
+							<p>
+								<FormattedDate date={post.data.pubDate} />
+							</p>	
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+	
+			<h3 class="font-bold leading-5 mb-8">This is a work in progress - here's what we're working on:</h3>
+			<ul class="list-disc px-10">
+				<li>Adding resources and statistics to our resources page.</li>
+				<li>Catching up on our daily journal - need to copy from our real journals.</li>
+				<li>Adding categories and date sidebars to our journal and blog pages.</li>
+				<li>Adding more ways for you to contribute to our apartment fundraising efforts!</li>
+				<li>Adding links to sign up to the Substack Newsletter and Medium Publications.</li>
+				<li>Updating our social medias to keep you up to date with our latest news!</li>
+				<li>Much more is in the works - you can stay up to date with our <a href="https://github.com/geauxtigers69/living-homeless-website">GitHub Project Page</a>!</li>
 			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
 	</BaseLayout>
 </html>
