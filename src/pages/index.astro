@@ -42,12 +42,13 @@ const permalink = Astro.site.href;
 			</picture>
 		</div>
 	</div>
-	<div>
-		<ul>
+	<div class="px-8 items-center justify-center">
+		<h2 class="font-bold leading-5 mt-12 mb-16 text-center">Featured Posts</h2>
+		<ul class="flex flex-wrap gap-8 m-0 p-0 justify-center">
 			{
 				posts.map((post) => (
-					<li>
-						<a href={`/blog/${post.slug}`}>
+					<li class="w-3/12 ease-in first:mb-4 first:text-center">
+						<a href={`/blog/${post.slug}`} class="inline-block">
 							<img width={360} height={180} src={post.data.heroImage} alt="" />
 							<h4>{post.data.title}</h4>
 							<p>
@@ -59,8 +60,8 @@ const permalink = Astro.site.href;
 			}
 		</ul>
 	</div>
-	
-			<h3 class="font-bold leading-5 mb-8">This is a work in progress - here's what we're working on:</h3>
+	<div class="px-8 items-center justify-center mt-12">
+		<h3 class="font-bold leading-5 mb-8">This is a work in progress - here's what we're working on:</h3>
 			<ul class="list-disc px-10">
 				<li>Adding resources and statistics to our resources page.</li>
 				<li>Catching up on our daily journal - need to copy from our real journals.</li>
@@ -68,7 +69,8 @@ const permalink = Astro.site.href;
 				<li>Adding more ways for you to contribute to our apartment fundraising efforts!</li>
 				<li>Adding links to sign up to the Substack Newsletter and Medium Publications.</li>
 				<li>Updating our social medias to keep you up to date with our latest news!</li>
-				<li>Much more is in the works - you can stay up to date with our <a href="https://github.com/geauxtigers69/living-homeless-website">GitHub Project Page</a>!</li>
+				<li>Much more is in the works - you can stay up to date with our <a href="https://github.com/users/geauxtigers69/projects/2/views/3">GitHub Project Page</a>!</li>
 			</ul>
+	</div>
 	</BaseLayout>
 </html>

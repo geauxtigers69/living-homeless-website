@@ -13,7 +13,7 @@ const posts = (await getCollection('journal')).sort(
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="journal">
-  <div class="text-center my-auto max-w-6xl w-full">
+  <div class="text-center my-auto max-w-6xl w-full items-center justify-center mx-auto">
     <h2 class="font-bold mt-14 mb-8">Journal</h2>
     <p class="text-large mb-14">Daily journal entries documenting the homeless experiences of Lisa and Andrew</p>
     {posts.map((post, index) => {
