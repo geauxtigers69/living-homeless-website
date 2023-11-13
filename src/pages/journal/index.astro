@@ -5,14 +5,13 @@ import FormattedDate from '../../components/FormattedDate.astro';
 
 const title = 'Living Homeless | Daily Journal';
 const description = 'Daily posts about homeless life by Lisa and Andrew.';
-const permalink = Astro.site.href;
 
 const posts = (await getCollection('journal')).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="journal">
+<BaseLayout title={title} description={description}>
   <div class="text-center my-auto max-w-6xl w-full items-center justify-center mx-auto">
     <h2 class="font-bold mt-14 mb-8">Journal</h2>
     <p class="text-large mb-14">Daily journal entries documenting the homeless experiences of Lisa and Andrew</p>
