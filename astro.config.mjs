@@ -11,6 +11,6 @@ import netlify from "@astrojs/netlify/functions";
 export default defineConfig({
   site: 'https://living-homeless.vercel.app',
   integrations: [mdx(), sitemap(), tailwind(), svelte()],
-  output: "server",
+  output: "hybrid",
   adapter: vercel()
 });
